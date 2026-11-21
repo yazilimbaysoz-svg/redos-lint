@@ -1,0 +1,34 @@
+rules:
+  - id: no-eval
+    languages: [python]
+    severity: ERROR
+    message: "Dynamic eval() execution is forbidden in this codebase."
+    pattern: eval(...)
+
+  - id: no-exec
+    languages: [python]
+    severity: ERROR
+    message: "Dynamic exec() execution is forbidden in this codebase."
+    pattern: exec(...)
+
+  - id: no-shell-true
+    languages: [python]
+    severity: WARNING
+    message: "Shell invocation with shell=True can lead to command injection."
+    patterns:
+      - pattern: subprocess.$METHOD(..., shell=True, ...)
+      - metavariable-regex:
+          metavariable: $METHOD
+          regex: ^(run|Popen|call|check_output)$
+
+  - id: no-hardcoded-secret-assignment
+    languages: [python]
+    severity: ERROR
+    message: "Hardcoded credential assignment detected; load secrets from the environment."
+    patterns:
+      - pattern-either:
+          - pattern: '$NAME = "..."'
+          - pattern: '$NAME: str = "..."'
+      - metavariable-regex:
+          metavariable: $NAME
+          regex: '(?i)^(api_key|secret|password|passwd|access_token|auth_token|private_key)$'
