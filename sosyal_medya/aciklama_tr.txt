@@ -1,0 +1,16 @@
+30 KARAKTERLİK BİR REGEX, SERVİSİNİ 30 DAKİKA DURDURABİLİR. 🚨
+
+`^(a+)+$` gibi görünmez bir backtracking tuzağı, tek bir istekle CPU'yu %100'e sabitler. Çoğu güvenlik tarayıcısı bunu görmez; redos-lint tam olarak bu sorunu çözer: regex'i çalıştırmadan tehlikeyi kaynak kodunda bulur.
+
+Öne çıkanlar:
+• İç içe tekrar, örtüşen alternasyon ve yan yana quantifier'ları CRITICAL/HIGH/MEDIUM olarak sınıflandırır
+• Python ve JavaScript/TypeScript regex'lerini tarar; file:line raporu, JSON/Markdown çıktı ve --fail-on CI kapısı sunar
+• Sıfır runtime bağımlılığı, tamamen çevrimdışı, telemetrisiz; 8GB RAM'li laptop'ta saniyeler içinde biter
+
+Kurulum:
+uv tool install redos-lint
+redos-lint scan . --fail-on high
+
+🔗 GitHub: https://github.com/yazilimbaysoz-svg/redos-lint
+
+#redoslint #redos #regex #siberguvenlik #cybersecurity #devsecops #acikkaynak #opensource #python #cli #devtools #ci #cicd #staticanalysis #guvenlik #yazilim #softwareengineering #buildinpublic #baysozlabs #zerodependencies

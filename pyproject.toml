@@ -55,3 +55,4 @@ ignore = ["S101"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S105", "S106"]
+"sosyal_medya/*" = ["RUF001", "RUF002"]
