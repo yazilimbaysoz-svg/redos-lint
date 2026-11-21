@@ -1,0 +1,16 @@
+BU REGEX 30 KARAKTERDE SERVİSİNİ ÇÖKERTİR 🚨
+
+`^(a+)+$` — görünmez backtracking tuzağı. CPU %100, event loop bloke, healthcheck fail. redos-lint bu riski regex'i çalıştırmadan, 3 saniyede kaynak kodunda yakalar.
+
+Öne çıkanlar:
+• İç içe tekrar ve örtüşen alternasyonları CRITICAL olarak işaretler
+• Python/JS/TS regex'lerini tarar, file:line raporu ve --fail-on CI kapısı sunar
+• Sıfır bağımlılık, çevrimdışı çalışma, 8GB RAM dostu hafif mimari
+
+Kurulum:
+uv tool install redos-lint
+redos-lint check '^(a+)+$'
+
+🔗 GitHub: https://github.com/yazilimbaysoz-svg/redos-lint
+
+#redoslint #redos #regex #siberguvenlik #cybersecurity #devsecops #acikkaynak #opensource #python #cli #devtools #cicd #staticanalysis #baysozlabs #reels #viral
